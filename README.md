@@ -50,5 +50,5 @@ Página web informativa que incluye una guía para preparar café, una tabla de 
 - Diseño responsivo para dispositivos móviles
 
 ## Autor
-[Tu Nombre]
+DAVID ARANGO MENESES
 Fecha: Enero 2024
