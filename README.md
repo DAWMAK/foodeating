@@ -1,5 +1,3 @@
-# foodeating
-
 # Mi Primera Página Web
 
 ## Descripción
@@ -50,5 +48,5 @@ Página web informativa que incluye una guía para preparar café, una tabla de 
 - Diseño responsivo para dispositivos móviles
 
 ## Autor
-DAVID ARANGO MENESES
+[Tu Nombre]
 Fecha: Enero 2024

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO y metadatos de documentación -->
+    <meta name="description" content="Guía completa para preparar café, información sobre frutas y formulario de contacto">
+    <meta name="keywords" content="café, preparación café, frutas, nutrición, contacto">
+    <meta name="author" content="DAVID ARANGO">
+    <meta name="version" content="1.0.0">
+    <meta name="robots" content="index, follow">
+    <meta name="copyright" content="© 2025 Mi Primera Página">
+    <meta name="language" content="Spanish">
+    <title>Mi primera página</title>
+
+    <!-- Recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="https://www.flaticon.es/icono-gratis/olla-caliente_3183463" type="image/png">
+</head>
+<body>
+    <!-- Encabezado principal y navegación -->
+    <header>
+        <nav aria-label="principal">
+            <h1>MI PRIMERA PAGINA</h1>
+            <img src="https://www.flaticon.es/icono-gratis/olla-caliente_3183463" alt="Logo de la página" width="50" height="50">
+            <!-- Aquí puedes añadir navegación en el futuro -->
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección: Guía de preparación de café -->
+        <article>
+            <h2>¿Cómo preparar café?</h2>
+            
+            <div class="coffee-content">
+                <div class="coffee-instructions">
+                    <section>
+                        <h3>Ingredientes necesarios:</h3>
+                        <ul>
+                            <li>Café molido</li>
+                            <li>Agua filtrada</li>
+                            <li>Azúcar (opcional)</li>
+                            <li>Filtro de papel o tela</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>Pasos para la preparación:</h3>
+                        <ol>
+                            <li>Hervir el agua hasta que alcance 90-96°C</li>
+                            <li>Colocar el filtro en el portafiltro</li>
+                            <li>Agregar el café molido en el filtro (una cucharada por taza)</li>
+                            <li>Verter un poco de agua caliente para humedecer el café</li>
+                            <li>Esperar 30 segundos</li>
+                            <li>Verter el resto del agua lentamente en forma circular</li>
+                            <li>Esperar a que filtre completamente</li>
+                            <li>Servir y disfrutar</li>
+                        </ol>
+                    </section>
+                </div>
+                
+                <figure class="coffee-image">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+                         alt="Preparación de café por goteo"
+                         loading="lazy">
+                    <figcaption>Proceso de preparación de café por goteo</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <!-- Sección: Tabla de frutas favoritas -->
+        <article>
+            <h2>Mis Frutas Favoritas</h2>
+            <div class="table-responsive">
+                <table>
+                    <caption>Lista de frutas favoritas y sus beneficios</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">¿Por qué me gusta?</th>
+                            <th scope="col">Beneficios</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6" 
+                                 alt="Manzana roja fresca" 
+                                 loading="lazy"></td>
+                            <td>Manzana</td>
+                            <td>Su dulzura natural y textura crujiente</td>
+                            <td>Rica en fibra y antioxidantes</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e" alt="Plátano" loading="lazy"></td>
+                            <td>Plátano</td>
+                            <td>Perfecta para cualquier momento del día</td>
+                            <td>Alto en potasio y energía</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images.unsplash.com/photo-1557800636-894a64c1696f" alt="Fresas" loading="lazy"></td>
+                            <td>Fresas</td>
+                            <td>Su sabor dulce y aromático</td>
+                            <td>Antioxidantes naturales</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images.unsplash.com/photo-1553279768-865429fa0078" alt="Mango fresco" loading="lazy"></td>
+                            <td>Mango</td>
+                            <td>Su jugosidad y sabor tropical, con limon y sal</td>
+                            <td>Vitamina A y C</td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5" alt="Arándanos" loading="lazy"></td>
+                            <td>Arándanos</td>
+                            <td>Pequeños pero llenos de sabor</td>
+                            <td>Superalimento antioxidante</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <!-- Sección: Formulario de contacto interactivo -->
+        <article>
+            <h2>Contacto</h2>
+            <section class="contact-form">
+                <form action="#" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo<span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            placeholder="Ej: Juan Pérez García"
+                            required
+                            minlength="3"
+                            maxlength="50">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico<span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Ej: juan.perez@correo.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje<span class="required">*</span></label>
+                        <textarea 
+                            id="mensaje" 
+                            name="mensaje" 
+                            placeholder="Escribe tu mensaje aquí... (Mínimo 10 caracteres)"
+                            required
+                            minlength="10"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar mensaje</button>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.550853544509!2d-76.5342549206155!3d3.458744987531641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a66bdb84bc63%3A0xae3b26b46f85a690!2sITGEM!5e0!3m2!1ses-419!2sco!4v1737755959132!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </form>
+            </section>
+        </article>
+
+        <!-- Sección: Referencias y atribuciones -->
+        <article class="references">
+            <h2>Referencias Bibliográficas</h2>
+            <ul class="references-list">
+                <li>
+                    <strong>Preparación del café:</strong> 
+                    National Coffee Association. (2024). How to Brew Coffee. 
+                    <a href="https://www.ncausa.org/About-Coffee/How-to-Brew-Coffee" target="_blank" rel="noopener">
+                        https://www.ncausa.org
+                    </a>
+                </li>
+                
+                <li>
+                    <strong>Información nutricional de frutas:</strong>
+                    FDA. (2023). Raw Fruits Poster. 
+                    <a href="https://www.fda.gov/food/food-labeling-nutrition" target="_blank" rel="noopener">
+                        https://www.fda.gov
+                    </a>
+                </li>
+
+                <li>
+                    <strong>Imágenes de frutas:</strong> 
+                    Unsplash. (2024). Food Photography. 
+                    <a href="https://unsplash.com/s/photos/fruits" target="_blank" rel="noopener">
+                        https://unsplash.com
+                    </a>
+                </li>
+            </ul>
+
+            <p class="citation-note">
+                <small>
+                    Nota: Todas las imágenes utilizadas en esta página están bajo licencia Unsplash y son de uso libre.
+                    Última actualización: Enero 2024.
+                </small>
+            </p>
+        </article>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Mi Primera Página</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/form.js"></script>
+</body>
+</html>
