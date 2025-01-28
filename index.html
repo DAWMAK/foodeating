@@ -26,6 +26,7 @@
             background-color: var(--background-color);
         }
 
+        /* Header */
         header {
             background: linear-gradient(45deg, 
                 #FF6B6B,  /* Rojo tomate */
@@ -37,14 +38,14 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             display: flex;
+            flex-direction: column; /* Cambia a columna */
             align-items: center;
-            justify-content: flex-start;
+            gap: 1.5rem; /* Espacio entre elementos */
         }
 
         .logo {
             width: 60px;
             height: 60px;
-            margin-right: 2rem;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
             transition: transform 0.3s ease;
         }
@@ -54,9 +55,223 @@
         }
 
         .header-text {
-            flex-grow: 1;
+            text-align: center;
         }
 
+        /* Menú de navegación */
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .header-nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-nav a {
+                font-size: 1rem;
+            }
+        }
+
+          /* Estilos del botón hamburguesa */
+    .hamburger-menu {
+        display: none;
+        padding: 15px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 1000;
+    }
+    
+    .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .hamburger-inner {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+        display: block;
+        top: 50%;
+        margin-top: -2px;
+    }
+    
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
+    
+    .hamburger-inner::before {
+        top: -10px;
+    }
+    
+    .hamburger-inner::after {
+        bottom: -10px;
+    }
+    
+    /* Animación del botón hamburguesa */
+    .hamburger-menu.active .hamburger-inner {
+        transform: rotate(45deg);
+    }
+    
+    .hamburger-menu.active .hamburger-inner::before {
+        top: 0;
+        opacity: 0;
+    }
+    
+    .hamburger-menu.active .hamburger-inner::after {
+        bottom: 0;
+        transform: rotate(-90deg);
+    }
+    
+    /* Menú móvil */
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(135deg, 
+            rgba(255, 107, 107, 0.98),
+            rgba(78, 205, 196, 0.98)
+        );
+        z-index: 999;
+        padding-top: 80px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-nav.active {
+        transform: translateX(0);
+    }
+    
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .mobile-nav li {
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .mobile-nav li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-nav li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-nav li:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-nav li:nth-child(4) { transition-delay: 0.4s; }
+    .mobile-nav li:nth-child(5) { transition-delay: 0.5s; }
+    
+    .mobile-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 10px 20px;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: white;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    .mobile-nav a:hover::after {
+        width: 80%;
+    }
+    
+    /* Media queries */
+    @media (max-width: 768px) {
+        .hamburger-menu {
+            display: block;
+        }
+        
+        .header-nav {
+            display: none;
+        }
+        
+        .mobile-nav {
+            display: block;
+        }
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -822,17 +1037,17 @@ tr:hover td {
     }
 
      /* WEBGRAFIA */
-     .webography-container {
+     .webgraphy-container {
         padding: 1.5rem;
     }
 
-    .webography-list {
+    .webgraphy-list {
         list-style: none;
         display: grid;
         gap: 1.5rem;
     }
 
-    .webography-item {
+    .webgraphy-item {
         background: rgba(255, 255, 255, 0.9);
         border-radius: 10px;
         padding: 1.5rem;
@@ -840,17 +1055,17 @@ tr:hover td {
         transition: transform 0.3s ease;
     }
 
-    .webography-item:hover {
+    .webgraphy-item:hover {
         transform: translateY(-3px);
     }
 
-    .webography-item h3 {
+    .webgraphy-item h3 {
         color: var(--text-color);
         margin-bottom: 0.5rem;
         font-size: 1.3rem;
     }
 
-    .webography-item a {
+    .webgraphy-item a {
         display: inline-block;
         margin: 0.5rem 0;
         font-weight: 600;
@@ -858,11 +1073,11 @@ tr:hover td {
         transition: all 0.3s ease;
     }
 
-    .webography-item a:hover {
+    .webgraphy-item a:hover {
         border-bottom-color: var(--primary-color);
     }
 
-    .webography-item p {
+    .webgraphy-item p {
         color: #666;
         font-size: 0.95rem;
         line-height: 1.5;
@@ -870,15 +1085,15 @@ tr:hover td {
     }
 
     @media (max-width: 768px) {
-        .webography-item {
+        .webgraphy-item {
             padding: 1rem;
         }
         
-        .webography-item h3 {
+        .webgraphy-item h3 {
             font-size: 1.2rem;
         }
         
-        .webography-item p {
+        .webgraphy-item p {
             font-size: 0.9rem;
         }
     }
@@ -887,6 +1102,23 @@ tr:hover td {
 </head>
 <body>
     <header>
+        <!-- menu hamburguesa <header> -->
+    <button class="hamburger-menu" aria-label="Menú de navegación" aria-expanded="false">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+    
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#welcome">Inicio</a></li>
+            <li><a href="#coffee">Café</a></li>
+            <li><a href="#fruits">Frutas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#webgraphy">webgrafía</a></li>
+        </ul>
+    </nav>
+
         <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M30,20 C30,50 70,50 70,20" stroke="white" stroke-width="6" fill="none"/>
             <path d="M50,20 L50,80" stroke="white" stroke-width="6" stroke-linecap="round"/>
@@ -898,19 +1130,97 @@ tr:hover td {
             <h1>FOODEATING</h1>
             <p>Tu destino gastronómico</p>
         </div>
+        <!-- Menú de navegación -->
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#welcome">Inicio</a></li>
+                <li><a href="#coffee">Café</a></li>
+                <li><a href="#fruits">Frutas</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#webgraphy">webgrafía</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
-        <section class="card">
-            <h2>Bienvenidos a FOODEATING</h2>
-            <p>Descubre los mejores sabores y experiencias culinarias.</p>
-            <button class="btn" id="welcomeBtn">¡Comenzar!</button>
+        <!-- Sección de Bienvenida -->
+        <section class="card" id="welcome">
+            <h2 style="margin: 2rem 0 1.5rem; text-align: center; position: relative; font-size: 2.8rem;">
+                <span style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+                            -webkit-background-clip: text;
+                            background-clip: text;
+                            color: transparent;
+                            font-weight: 700;
+                            letter-spacing: -1px;
+                            padding: 0 1rem;
+                            position: relative;
+                            z-index: 2;">
+                    🍽️ Bienvenidos a FOODEATING 🥂
+                </span>
+                <div style="position: absolute;
+                            bottom: -10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 120px;
+                            height: 4px;
+                            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+                            border-radius: 2px;">
+                </div>
+            </h2>
+        
+            <div style="background: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 8px 30px rgba(0,0,0,0.12); margin-top: 2rem;">
+                <p style="font-size: 1.2rem; text-align: center; line-height: 1.8; margin-bottom: 2rem;">
+                    En FOODEATING, transformamos cada comida en una experiencia inolvidable. Desde 2020, nos hemos dedicado a crear momentos especiales a través de la gastronomía, donde cada plato cuenta una historia y cada ingrediente tiene un propósito.
+                </p>
+        
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin: 2.5rem 0;">
+                    <div style="background: linear-gradient(135deg, rgba(255,107,107,0.1), rgba(78,205,196,0.1)); padding: 2rem; border-radius: 10px; transition: transform 0.3s ease;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.4rem; text-align: center;">
+                            Nuestra Misión
+                        </h3>
+                        <p style="text-align: center; line-height: 1.6;">
+                            Inspirar y educar a través de la gastronomía, promoviendo una relación saludable con la comida mientras celebramos la diversidad de sabores que el mundo tiene para ofrecer.
+                        </p>
+                    </div>
+        
+                    <div style="background: linear-gradient(135deg, rgba(78,205,196,0.1), rgba(255,107,107,0.1)); padding: 2rem; border-radius: 10px; transition: transform 0.3s ease;">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 1rem; font-size: 1.4rem; text-align: center;">
+                            ¿Por Qué Elegirnos?
+                        </h3>
+                        <ul style="list-style: none; padding-left: 0; text-align: center;">
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <span style="color: var(--secondary-color);">✓</span> Ingredientes premium seleccionados
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <span style="color: var(--secondary-color);">✓</span> Recetas auténticas y creativas
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <span style="color: var(--secondary-color);">✓</span> Compromiso con la sostenibilidad
+                            </li>
+                            <li style="margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <span style="color: var(--secondary-color);">✓</span> Experiencia gastronómica única
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <p style="font-style: italic; text-align: center; color: #666; margin: 2rem 0; font-size: 1.1rem; position: relative;">
+                    "Donde cada sabor cuenta una historia y cada momento se convierte en un recuerdo especial"
+                </p>
+        
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn submit-btn" id="welcomeBtn" style="padding: 1rem 2rem; font-size: 1.2rem; border-radius: 8px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));">
+                        ¡Comienza Tu Aventura Culinaria!
+                    </button>
+                </div>
+            </div>
         </section>
 
-        <section class="card coffee-section">
-            <div class="coffee-bg">
-                <div class="coffee-content">
-                    <h2>Cómo Preparar el Café Perfecto</h2>
+        <!-- Sección de Café -->
+<section class="card coffee-section" id="coffee">
+    <div class="coffee-bg">
+        <div class="coffee-content">
+            <h2>Cómo Preparar el Café Perfecto</h2>
                     
                     <h3>Ingredientes:</h3>
                     <ul>
@@ -931,7 +1241,7 @@ tr:hover td {
         </section>
 
     <!-- Sección de Frutas Favoritas - Versión Mejorada -->
-<section class="card">
+    <section class="card" id="fruits">
     <h2 style="margin: 2rem 0 1.5rem; text-align: center; position: relative; font-size: 2.8rem;">
         <span style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
                     -webkit-background-clip: text;
@@ -1013,7 +1323,7 @@ tr:hover td {
 
 <!-- CONTACTO </main> -->
 
-<section class="card contact-section">
+<section class="card contact-section" id="contact">
     <h2 style="margin: 2rem 0 3rem; text-align: center; position: relative;">
         <span style="display: inline-block;
                     background: linear-gradient(135deg, var(--primary-color) 30%, var(--secondary-color) 70%);
@@ -1144,9 +1454,9 @@ tr:hover td {
     </div>
 </section>
 
-<!-- Sección de Webografía -->
-<section class="card">
-    <h2 style="margin: 2rem 0 1.5rem; text-align: center; position: relative; font-size: 2.8rem;">
+<!-- Sección de webgrafía -->
+<section class="card" id="webgraphy">
+        <h2 style="margin: 2rem 0 1.5rem; text-align: center; position: relative; font-size: 2.8rem;">
         <span style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
                     -webkit-background-clip: text;
                     background-clip: text;
@@ -1156,7 +1466,7 @@ tr:hover td {
                     padding: 0 1rem;
                     position: relative;
                     z-index: 2;">
-            📚 Webografía 📖
+            📚 webgrafía 📖
         </span>
         <div style="position: absolute;
                     bottom: -10px;
@@ -1169,9 +1479,9 @@ tr:hover td {
         </div>
     </h2>
 
-    <div class="webography-container">
-        <ul class="webography-list">
-            <li class="webography-item">
+    <div class="webgraphy-container">
+        <ul class="webgraphy-list">
+            <li class="webgraphy-item">
                 <h3>Recursos de Café</h3>
                 <a href="https://www.nespresso.com" 
                    target="_blank" 
@@ -1182,7 +1492,7 @@ tr:hover td {
                 <p>Recetas profesionales para preparación de café</p>
             </li>
             
-            <li class="webography-item">
+            <li class="webgraphy-item">
                 <h3>Información Nutricional</h3>
                 <a href="https://www.hsph.harvard.edu/nutritionsource" 
                    target="_blank" 
@@ -1193,7 +1503,7 @@ tr:hover td {
                 <p>Datos científicos sobre propiedades de alimentos</p>
             </li>
             
-            <li class="webography-item">
+            <li class="webgraphy-item">
                 <h3>Fotografías Culianarias</h3>
                 <a href="https://unsplash.com" 
                    target="_blank" 
@@ -1209,6 +1519,50 @@ tr:hover td {
 
     </main>
 
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.header-nav a');
+    
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.header-nav a');
+
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
+    </script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const welcomeBtn = document.getElementById('welcomeBtn');
@@ -1331,6 +1685,14 @@ document.addEventListener('DOMContentLoaded', () => {
             Prohibida la reproducción total o parcial sin autorización expresa.<br>
             NIT: 123.456.789-0 • Cali, Valle del Cauca, Colombia
         </p>
+        <p style="
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        ">
+            Página creada por <strong>David Arango</strong> & <strong>Luis Renza</strong>
+        </p>
         <div style="
             margin-top: 0.5rem;
             display: flex;
@@ -1374,5 +1736,57 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
 
+<!-- Finalmente, añade este JavaScript antes del cierre de </body> -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+    
+        // Función para alternar el menú
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            
+            // Actualiza el atributo aria-expanded
+            const isExpanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+        }
+    
+        // Event listeners
+        hamburger.addEventListener('click', toggleMenu);
+    
+        // Cerrar menú al hacer clic en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+    
+                toggleMenu();
+    
+                if (targetSection) {
+                    setTimeout(() => {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                }
+            });
+        });
+    
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (mobileNav.classList.contains('active') && 
+                !mobileNav.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+    });
+    </script>
+    
 </body>
 </html>
