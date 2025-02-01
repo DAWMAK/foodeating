@@ -1,0 +1,21 @@
+{
+  "name": "foodeating",
+  "version": "1.0.0",
+  "homepage": "https://tuUsuario.github.io/foodeating",
+  "description": "Sitio web gastronómico",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "build": "cleancss -o dist/styles.min.css styles.css && uglifyjs javascript.js -o dist/javascript.min.js",
+    "minify": "npm run build"
+  },
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "live-server": "^1.2.2",
+    "uglify-js": "^3.17.4"
+  }
+}
